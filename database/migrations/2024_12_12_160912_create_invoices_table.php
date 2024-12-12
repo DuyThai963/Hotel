@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('paymentMethod')->default(1)->comment = '1:tt 0:gt';
             $table->string('note')->nullable();
             $table->integer('total');
-            $table->string('type');//pro/room
+            $table->string('type');
             $table->timestamps();
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
