@@ -140,10 +140,25 @@ class ProductController extends Controller
     }
     public function change(string $id)
     {
+<<<<<<< HEAD
         $product = Product::find($id);
         if($product) {
             $product->status = $product->status == 1 ? 0 : 1;
 
+=======
+        if(ProductCate::where('id',$id)->delete()){
+            return response()->json(["Delete success."]);
+        }else{
+            return response()->json(["Delete error."]);
+        }
+    }
+    public function change(string $id)
+    {
+        $product = Product::find($id);
+        if($product) {
+            $product->status = $product->status == 1 ? 0 : 1;
+            
+>>>>>>> 2e96537 (update)
             $product->save();
 
             return response()->json([
