@@ -381,17 +381,17 @@ class CustomerController extends Controller
             'invoices' => $invoices
         ]);
     }
-    function generateOrderCode($type = 'room') {
-    $prefix = match ($type) {
-        'room'  => 'DP',
-        'order' => 'DH',
-        default => 'XX',
-    };
+    function generateOrderCode($type = 'room') 
+    {
+        $prefix = match ($type) {
+            'room'  => 'DP',
+            'order' => 'DH',
+            default => 'XX',
+        };
 
-    $datePart   = date('ymd');
-    $randomPart = strtoupper(substr(bin2hex(random_bytes(5)), 0, 5));
+        $datePart   = date('ymd');
+        $randomPart = strtoupper(substr(bin2hex(random_bytes(5)), 0, 5));
 
-    return $prefix . $datePart . $randomPart;
-}
-
+        return $prefix . $datePart . $randomPart;
+    }
 }
